@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>SafePlate</title>
+    </head>
+    <body>
+        <div class="titleDiv">
+            <h1>SafePlate</h1>
+            <p>Cook confidently, no matter the diet.</p>
+        </div>
+        <div class="formDiv">
+            <form>
+                <label for="recipe">Paste recipe:</label>
+                <textarea id="recipe"></textarea>
+                <select id="restriction">
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Pescaterian</option>
+                    <option>Gluten-free</option>
+                    <option>Lactose-free</option>
+                </select>
+                <button id="rewriteBtn" type="button">Rewrite Recipe</button>
+            </form>
+            <p id="statusMessage">Status message</p>
+        </div>
+        <div class="outputDiv" id="output">
+            <h3>Ingredients</h3>
+            <ul id="ingredientsList"></ul>
+
+            <h3>Instructions</h3>
+            <ol id="instructionsList"></ol>
+
+            <h3>Substitutions</h3>
+            <div id="substitutionsList"></div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
