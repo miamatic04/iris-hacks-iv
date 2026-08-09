@@ -1,0 +1,57 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #222;
+  background: #fafafa;
+}
+
+h1 { margin-bottom: 4px; }
+
+.title-div { text-align: center; margin-bottom: 30px; }
+
+.form-div, .output-div {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+label { display: block; margin-top: 12px; font-weight: 600; }
+
+textarea, select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: #2f6f4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover { background: #244; }
+
+#statusMessage { margin-top: 8px; font-size: 14px; color: #555; }
+
+#substitutionsList div {
+  border-left: 4px solid #2f6f4f;
+  background: #f2f8f4;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
