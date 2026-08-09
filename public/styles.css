@@ -55,3 +55,29 @@ button:hover { background: #244; }
   margin-bottom: 10px;
   border-radius: 4px;
 }
+
+.restriction-btn {
+  background: white;
+  border: 1px solid #2f6f4f;
+  color: #2f6f4f;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 4px;
+  font-size: 14px;
+}
+.restriction-btn.active {
+  background: #2f6f4f;
+  color: white;
+}
+
+#disclaimer {
+  background: #fff8e1;
+  border: 1px solid #f0d78c;
+  color: #6b5a1e;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 16px;
+}

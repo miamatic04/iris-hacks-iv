@@ -8,15 +8,26 @@ app.use(express.json())
 
 app.post('/api/rewrite', async function(req, res) {
     recipe = req.body.recipe
-    restriction = req.body.restriction
+    restriction = req.body.restriction  // now an array, e.g. ["vegan", "gluten-free"]
 
-    const prompt = `You are a culinary science assistant. Rewrite the following recipe to be ${restriction}.
+    const restrictionText = Array.isArray(restriction) ? restriction.join(', ') : restriction
+
+    const prompt = `You are a culinary science assistant. Rewrite the following recipe to satisfy ALL of these dietary restrictions: ${restrictionText}.
 
 Recipe:
 """
 ${recipe}
 """
-Check every single ingredient for compliance with the restriction — do not skip any, including eggs, dairy, and hidden animal products.
+
+Check every single ingredient against every restriction listed — do not skip any, including hidden animal products, gluten, dairy, or nuts. This includes indirect cases like chocolate chips that may contain milk, or "natural flavoring" that may be non-vegan.
+
+Eggs do not contain dairy.
+
+Only include an item in "substitutions" if the ingredient was actually changed. Do NOT include unchanged ingredients with invented justifications.
+
+CRITICAL CONSISTENCY RULE: the "ingredients" list, the "instructions" text, and the "substitutions" list must all agree with each other. Every ingredient mentioned in "instructions" MUST appear in "ingredients" with a specific quantity — never mention an ingredient in the instructions that isn't listed with an amount in the ingredients list. If an ingredient is replaced, the "ingredients" list must show the replacement (with quantity), the "instructions" must refer to the replacement by name only (not "eggs (replaced with aquafaba)" — just say "aquafaba"), and it must also appear in "substitutions".
+
+Before responding, double check: does every ingredient named in your instructions have a matching entry with a quantity in your ingredients list? If not, fix it before returning your answer.
 
 Return ONLY valid JSON, no markdown fences, no extra text, matching exactly this shape:
 {
@@ -35,8 +46,9 @@ Return ONLY valid JSON, no markdown fences, no extra text, matching exactly this
                 'Authorization': `Bearer ${process.env.FEATHERLESS_API_KEY}`
             },
             body: JSON.stringify({
-                model: 'Qwen/Qwen2.5-7B-Instruct',
-                messages: [{ role: 'user', temperature: 0.2, content: prompt }]
+                model: 'deepseek-ai/DeepSeek-V3-0324',
+                temperature: 0.2,
+                messages: [{ role: 'user', content: prompt }]
             })
         })
 
