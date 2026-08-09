@@ -25,6 +25,8 @@ Eggs do not contain dairy.
 
 Only include an item in "substitutions" if the ingredient was actually changed. Do NOT include unchanged ingredients with invented justifications.
 
+For "reason", write a full sentence explaining the food-science or dietary reasoning behind the swap — not a single word or category label. For example: "Butter is not vegan-friendly since it's made from dairy; vegan butter is a plant-based alternative with a similar fat content for texture." A reason like "vegan" or "gluten-free" alone is NOT acceptable and must be expanded into a real explanation.
+
 CRITICAL CONSISTENCY RULE: the "ingredients" list, the "instructions" text, and the "substitutions" list must all agree with each other. Every ingredient mentioned in "instructions" MUST appear in "ingredients" with a specific quantity — never mention an ingredient in the instructions that isn't listed with an amount in the ingredients list. If an ingredient is replaced, the "ingredients" list must show the replacement (with quantity), the "instructions" must refer to the replacement by name only (not "eggs (replaced with aquafaba)" — just say "aquafaba"), and it must also appear in "substitutions".
 
 Before responding, double check: does every ingredient named in your instructions have a matching entry with a quantity in your ingredients list? If not, fix it before returning your answer.
