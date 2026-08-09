@@ -53,6 +53,7 @@ Return ONLY valid JSON, no markdown fences, no extra text, matching exactly this
         })
 
         const data = await response.json()
+        console.log('Featherless response:', JSON.stringify(data, null, 2))
         const raw = data.choices[0].message.content
         const cleaned = raw.replace(/```json|```/g, '').trim()
         const parsed = JSON.parse(cleaned)

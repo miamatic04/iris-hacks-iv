@@ -14,6 +14,21 @@ restrictionButtons.forEach(function(btn) {
     })
 })
 
+copyBtn = document.getElementById('copyBtn')
+
+copyBtn.addEventListener('click', function() {
+    const ingredientsText = Array.from(ingredientsList.children).map(li => li.textContent).join('\n')
+    const instructionsText = Array.from(instructionsList.children).map(li => li.textContent).join('\n')
+    const fullText = `Ingredients:\n${ingredientsText}\n\nInstructions:\n${instructionsText}`
+
+    navigator.clipboard.writeText(fullText).then(function() {
+        copyBtn.textContent = 'Copied!'
+        setTimeout(function() {
+            copyBtn.textContent = 'Copy Recipe'
+        }, 1500)
+    })
+})
+
 rewriteBtn.addEventListener('click', function() {
     const selectedRestrictions = []
     restrictionButtons.forEach(function(btn) {
@@ -27,7 +42,7 @@ rewriteBtn.addEventListener('click', function() {
         return
     }
 
-    statusMessage.textContent = 'Rewriting your recipe...'
+    statusMessage.innerHTML = '<span class="spinner"></span>Rewriting your recipe...'
     rewriteBtn.disabled = true
 
     fetch('/api/rewrite', {

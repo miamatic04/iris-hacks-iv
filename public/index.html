@@ -12,7 +12,7 @@
         <div class="formDiv">
             <form>
                 <label for="recipe">Paste recipe:</label>
-                <textarea id="recipe"></textarea>
+                <textarea id="recipe" placeholder="Paste your recipe here, ingredients and instructions included..."></textarea>
                 <label>Dietary Restrictions (select one or more):</label>
                 <div id="restrictionButtons">
                     <button type="button" class="restriction-btn" data-value="vegan">Vegan</button>
@@ -27,7 +27,7 @@
         </div>
         <div class="outputDiv" id="output">
             <p id="disclaimer">⚠️ SafePlate uses AI and can make mistakes — always double-check the rewritten recipe yourself, especially for allergies or medical dietary needs, before cooking or eating.</p>
-
+            <button type="button" id="copyBtn">Copy Recipe</button>
             <h3>Ingredients</h3>
             <ul id="ingredientsList"></ul>
 
